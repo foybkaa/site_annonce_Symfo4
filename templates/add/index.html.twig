@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les échanges{% endblock %}
+
+{% block body %}
+    <div class="container text-center">
+        <h2 class="m-3">Les échanges disponibles</h2>
+        <div class="row">
+            {% for add in adds %}
+                <div class="col-md-4">
+                    <div class="card bd-light mb-3">
+                        <div>
+                        <p>Mr X aimerais échanger {{add.montant}} {{ add.deviseA|capitalize}} contre des {{add.deviseB|capitalize}} dans la ville de {{ add.ville|capitalize }}</p>
+                        <a href="#" class="btn btn-primary"> je suis intéressé </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
