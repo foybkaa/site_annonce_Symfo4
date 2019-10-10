@@ -3,7 +3,22 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-
-<h1>Accueil</h1>
+<div class="img-accueil"></div>
+<div class="container text-center">
+        
+        <h2 class="m-4">Les derniers échanges mis en ligne</h2>
+        <div class="row">
+            {% for changeAnnonce in changeAnnonces %}
+                <div class="col-md-4">
+                    <div class="card bd-light mb-3">
+                        <div>
+                        <p>Mr X aimerais échanger {{changeAnnonce.montant}} {{ changeAnnonce.deviseA|capitalize}} contre des {{changeAnnonce.deviseB|capitalize}} dans la ville de {{ changeAnnonce.ville|capitalize }}</p>
+                        <a href="{{path('changeAnnonce_show', {'id': changeAnnonce.id})}}" class="btn btn-primary"> je suis intéressé </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}

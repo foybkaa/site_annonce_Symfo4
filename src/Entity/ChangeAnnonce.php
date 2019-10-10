@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\AddChangeRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ChangeAnnonceRepository")
  */
-class AddChange
+class ChangeAnnonce
 {
     /**
      * @ORM\Id()
@@ -18,6 +19,7 @@ class AddChange
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\Positive(message="Veuillez indiquer un chiffre superieur à zéro")
      */
     private $montant;
 

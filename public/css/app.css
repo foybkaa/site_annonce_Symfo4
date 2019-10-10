@@ -1,0 +1,7 @@
+.img-accueil{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg-acc.jpg);
+    height: 50vh;
+}

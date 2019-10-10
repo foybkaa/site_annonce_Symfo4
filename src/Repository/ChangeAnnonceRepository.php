@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\AddChange;
+use App\Entity\ChangeAnnonce;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method AddChange|null find($id, $lockMode = null, $lockVersion = null)
- * @method AddChange|null findOneBy(array $criteria, array $orderBy = null)
- * @method AddChange[]    findAll()
- * @method AddChange[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ChangeAnnonce|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ChangeAnnonce|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ChangeAnnonce[]    findAll()
+ * @method ChangeAnnonce[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AddChangeRepository extends ServiceEntityRepository
+class ChangeAnnonceRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, AddChange::class);
+        parent::__construct($registry, ChangeAnnonce::class);
     }
 
     // /**
-    //  * @return AddChange[] Returns an array of AddChange objects
+    //  * @return ChangeAnnonce[] Returns an array of ChangeAnnonce objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class AddChangeRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?AddChange
+    public function findOneBySomeField($value): ?ChangeAnnonce
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')
