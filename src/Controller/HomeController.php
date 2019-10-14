@@ -9,6 +9,8 @@ use App\Repository\ChangeAnnonceRepository;
 class HomeController extends AbstractController
 {
     /**
+     * Permet d'afficher la page d'accueil
+     * 
      * @Route("/", name="home_index")
      */
     public function index(ChangeAnnonceRepository $repo)

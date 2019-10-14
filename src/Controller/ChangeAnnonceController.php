@@ -25,6 +25,9 @@ class ChangeAnnonceController extends AbstractController
         $form->handleRequest($request);
 
         if( $form->isSubmitted() && $form->isValid()){
+
+            $changeAnnonce->setAuthor($this->getUser());
+
             $manager->persist($changeAnnonce);
             $manager->flush();
 

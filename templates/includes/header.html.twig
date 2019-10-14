@@ -17,9 +17,28 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Profil</a>
+    {% if app.user %}
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="accounDropdownLink">
+          <img src="{{app.user.picture}}" class="img_profil img_profil_mini" alt="photo de profile de {{app.user.firstName}}">
+        {{app.user.firstName}} {{app.user.lastName}}</a> 
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accounDropdownLink">
+          <a href="{{path('account_index')}}" class="dropdown-item">Mon compte</a>
+          <a href="{{path('account_editProfile')}}" class="dropdown-item">Modifier mon profil</a>
+          <div class="dropdown-divider"></div>
+          <a href="{{path('account_logout')}}" class="dropdown-item">Déconnexion</a>
+        </div>
       </li>
+    {% else %}
+    <li class="nav-item">
+      <a href="{{path('account_register')}}" class="nav-link">Inscription</a>
+    </li>
+    <li class="nav-item">
+      <a href="{{path('account_login')}}" class="nav-link">Connexion</a>
+    </li>
+      
+    {% endif %}
     </ul>
   </div>
 </nav>

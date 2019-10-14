@@ -5,14 +5,19 @@
 {% block body %}
 <div class="img-accueil"></div>
 <div class="container text-center">
-        
+
         <h2 class="m-4">Les derniers échanges mis en ligne</h2>
         <div class="row">
+        <div class="col-md-3">
+            <!-- Currency Converter Script - FxExchangeRate.com  --><div style="width:248px;height:auto;border:1px solid #333333;text-align:center;font-size:16px;font-family:sans-serif,Arial,Helvetica;border-top-right-radius:5px; border-top-left-radius:5px;background-color:#FFFFFF; margin-bottom:20px;"><div style="width:100%; height:24px;background-color:#333333;font-weight:bold;"><p style="color:#FFFFFF;margin: 0;">Convertisseur de devise</p></div><script type="text/javascript" src="https://w.fxexchangerate.com/converter.php?fm=EUR&ft=USD&lg=en&am=1&ty=1"></script></div><!--  End of Currency Converter Script -  FxExchangeRate.com -->
+            </div>
             {% for changeAnnonce in changeAnnonces %}
                 <div class="col-md-4">
                     <div class="card bd-light mb-3">
                         <div>
-                        <p>Mr X aimerais échanger {{changeAnnonce.montant}} {{ changeAnnonce.deviseA|capitalize}} contre des {{changeAnnonce.deviseB|capitalize}} dans la ville de {{ changeAnnonce.ville|capitalize }}</p>
+                        <p><a href="{{ path('user_show', {'id': changeAnnonce.author.id}) }}">
+          <img src="{{changeAnnonce.author.picture}}" class="img_profil img_profil_mini" alt="photo de profile de {{app.user.firstName}}">
+        {{changeAnnonce.author.firstName}} {{changeAnnonce.author.lastName}}</a> aimerais échanger {{changeAnnonce.montant}} {{ changeAnnonce.deviseA|capitalize}} contre des {{changeAnnonce.deviseB|capitalize}} dans la ville de {{ changeAnnonce.ville|capitalize }}</p>
                         <a href="{{path('changeAnnonce_show', {'id': changeAnnonce.id})}}" class="btn btn-primary"> je suis intéressé </a>
                         </div>
                     </div>

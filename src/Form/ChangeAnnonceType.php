@@ -3,29 +3,19 @@
 namespace App\Form;
 
 use App\Entity\ChangeAnnonce;
-use Symfony\Component\Form\AbstractType;
+use App\Form\ApplicationType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChangeAnnonceType extends AbstractType
-{   /**
-    * Permet d'avoir la configuration de base d'un champ
-    */
-    private function getConfiguration($label,$placeholder){
-        return[
-            'label'=>$label,
-            'attr'=>[
-                'placeholder'=>$placeholder
-            ],
-            ];
-    }
+class ChangeAnnonceType extends ApplicationType
+{  
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            
+            ->add('montant', IntegerType::class, $this->getConfiguration("Combien","Veuillez indiquer le vous montant que vous souhaitez échanger"))
             ->add('deviseA', ChoiceType::class, [
                 'label'=>"La devise que vous possédez",
                 'choices'  => [
@@ -44,7 +34,7 @@ class ChangeAnnonceType extends AbstractType
                     'Autre*' => 'Autre',
                 ],
             ], )
-            ->add('montant', IntegerType::class, $this->getConfiguration("Montant","Veuillez indiquer le vous montant que vous souhaitez échanger"))
+            
             ->add('deviseB', ChoiceType::class, [
                 'label'=>"La devise que vous recherchez",
                 'choices'  => [
@@ -63,7 +53,7 @@ class ChangeAnnonceType extends AbstractType
                     'Autre*' => 'Autre',
                 ],
             ], )
-            ->add('ville', TextType::class, $this->getConfiguration("Ville", "Veuillez indiquer la ville ou l'échange aura lieux"))
+            ->add('ville', TextType::class, $this->getConfiguration("Où", "Veuillez indiquer la ville ou l'échange aura lieux"))
         ;
     }
 

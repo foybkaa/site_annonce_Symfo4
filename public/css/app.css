@@ -1,7 +1,47 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .foot {
+    text-align: center;
+    margin-top: auto;
+    background: rgb(218, 218, 218);
+    color: rgb(37, 37, 37);
+    padding: 15px;
+  }
 .img-accueil{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url(../img/bg-acc.jpg);
-    height: 50vh;
+    height: 55vh;
+    width: 100%;
+    display: table;
+    background-attachment: fixed;
+}
+
+.titreForm{
+    background-color: rgb(20, 20, 20);
+    color: #fff
+}
+.sectionForm{
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.img_profil{
+    max-width: 115px;
+    max-height: 115px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+.img_profil_mini{
+  border: 2px solid white;
+  max-width: 44px;
+  max-height: 44px;
 }
